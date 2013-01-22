@@ -1,0 +1,8 @@
+syntax: glob
+
+.pydevproject
+.project
+.settings/org.eclipse.core.resources.prefs
+
+*.pyc
+correpi/settings_local.py
