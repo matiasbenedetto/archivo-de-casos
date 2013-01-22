@@ -96,7 +96,6 @@ def parsear ():
             
             
             
-            
 def parsear2(requset):
     file = open("/home/matias/Escritorio/ARCHIVO_2011-3.txt")
     Caso.objects.all().delete()
