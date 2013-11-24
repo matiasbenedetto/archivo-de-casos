@@ -6,3 +6,4 @@ syntax: glob
 
 *.pyc
 correpi/settings_local.py
+static/*
