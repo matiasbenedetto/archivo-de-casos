@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 import requests
+from geoposition import Geoposition
+
+
 
 def index (request):
 
@@ -306,7 +309,7 @@ def crear_circunstancias (request):
 
 def buscar_coordenadas(request):
 
-    for caso in Caso.objects.all()[:200]:
+    for caso in Caso.objects.filter(coordenadas=Geoposition(0,0)):
 
 
         try:
