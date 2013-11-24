@@ -3,6 +3,12 @@ from archivo.models import *
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+import requests
+
+def index (request):
+
+    return render_to_response('index.html', locals(), context_instance=RequestContext(request))
+
 
 def parsear ():
     
@@ -297,5 +303,46 @@ def crear_circunstancias (request):
 
     return HttpResponse("Circunstancias Creadas")
 
+
+def buscar_coordenadas(request):
+
+    for caso in Caso.objects.all()[:200]:
+
+
+        try:
+            ciudad = caso.ciudad.split("-")[0]
+        except:
+            ciudad = caso.ciudad
+
+        if not ciudad:
+            opciones = {'q': caso.provincia, 'countrycodes': 'ar', 'limit':1, 'format': 'json'}
+        else:
+            opciones = {'city': ciudad, 'state': caso.provincia, 'country': 'ar', 'limit':1, 'format': 'json'}
+
+        r = requests.get("http://nominatim.openstreetmap.org/search", params=opciones)
+        datos = r.json()
+
+        try:
+            print caso.id
+            print caso.ciudad
+            print "PROVINCIA: " + caso.provincia
+
+            lat = datos[0]["lat"]
+            lon = datos[0]["lon"]
+            caso.coordenadas.latitude = lat
+            caso.coordenadas.longitude = lon
+            caso.save()
+            
+            print lat + " , " + lon
+            print "-----------------------------------"
+        except Exception, err:
+            print Exception, err
+
+            print "ERROR"
+            print caso.id
+            print caso.ciudad
+            print "-----------------------------------"
+
+    return HttpResponse("Coordandas Buscadas")
 
 
