@@ -1,8 +1,9 @@
 from django.contrib import admin
-from models import Caso
+from models import *
 
-#admin.site.register(Caso)
-
+admin.site.register(Fuerza)
+admin.site.register(Circunstancia)
+admin.site.register(Archivodecasos)
 
 class CasoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'apellido', 'edad', 'sexo', 'provincia', 'fecha_deceso')
