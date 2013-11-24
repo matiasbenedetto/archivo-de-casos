@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*- 
 
 from django.db import models
+from geoposition.fields import GeopositionField
 
 
 class Fuerza (models.Model):
@@ -45,6 +46,7 @@ class Caso (models.Model):
     circunstancias = models.TextField(blank=True)
     mayor = models.CharField(max_length=255)
     fuerza = models. ForeignKey(Fuerza)
+    coordenadas = GeopositionField()
     
 
 
