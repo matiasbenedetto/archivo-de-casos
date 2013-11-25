@@ -15,7 +15,7 @@ def index (request):
 
 
 def cargar_marcadores (request):
-    casos = list(Caso.objects.filter(anio=2011).values_list('coordenadas', 'nombre').exclude(coordenadas=Geoposition(0,0)))
+    casos = list(Caso.objects.filter(anio=2011).values_list('coordenadas', 'nombre', 'apellido').exclude(coordenadas=Geoposition(0,0)))
     return HttpResponse(json.dumps(casos), content_type="application/json")
 
 
@@ -234,8 +234,8 @@ def importar_bd (request):
             circunstancia = None
 
         try:
-            nombre=c.nombre.split(",")[0].title()
-            apellido=c.nombre.split(",")[1].title()
+            nombre=c.nombre.split(",")[1].title()
+            apellido=c.nombre.split(",")[0].title()
         except:
             nombre=c.nombre
             apellido=c.nombre
