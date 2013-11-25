@@ -6,6 +6,6 @@ admin.site.register(Circunstancia)
 admin.site.register(Archivodecasos)
 
 class CasoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'apellido', 'edad', 'sexo', 'provincia', 'fecha_deceso')
+    list_display = ('id', 'nombre', 'apellido', 'edad', 'sexo', 'provincia', 'fecha_deceso')
     list_editable = ('sexo',) 
 admin.site.register(Caso, CasoAdmin)
