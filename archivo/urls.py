@@ -4,9 +4,6 @@ from views import *
 
 urlpatterns = patterns('',
     
-    url(r'^parsear/', parsear),
-    url(r'^parsear2/', parsear2),
-
     url(r'^importar-bd/', importar_bd),
     url(r'^crear-fuerzas/', crear_fuerzas),
     url(r'^crear-circunstancias/', crear_circunstancias),
