@@ -6,6 +6,5 @@ syntax: glob
 
 *.pyc
 correpi/settings_local.py
-static/*
 *.sublime-project
 *.sublime-workspace
