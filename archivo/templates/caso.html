@@ -6,22 +6,27 @@
 
 {% block extra_js %}
 	<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-	<script src="{{STATIC_URL}}js/index.js" type="text/javascript"></script>
 {% endblock %}
 
-{% block body_class %}mapa{% endblock %}
+{% block body_class %}caso{% endblock %}
 
 {% block cuerpo %}
 			
 	<div class="col-lg-9">
-		{% for caso in casos %}
-			{{caso.id}}
-			{{caso.coordenadas}}
-		{% endfor %}
+		<h1>{{caso.nombre}} {{caso.apellido}}</h1>
 
-
-		<div id="mapa"></div>
+		<h2>Imputados</h2>
+		<p>{{caso.imputados}}</p>
+		<h2>Circunstancias</h2>
+		<p>{{caso.circunstancias}}</p>
+		<h2>Situación Procesal</h2>
+		<p>{{caso.situacion_procesal}}</p>
 	</div>
 		
+
+{% endblock %}
+
+
+{% block opciones %}
 
 {% endblock %}

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from archivo.models import *
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 import requests
 from geoposition import Geoposition
@@ -10,12 +10,19 @@ import json
 
 
 def index (request):
+    return redirect ("/archivo/mapa/")
     
-    return render_to_response('index.html', locals(), context_instance=RequestContext(request))
+
+def caso (request, id):
+    caso = Caso.objects.get(id=id)
+    return render_to_response('caso.html', locals(), context_instance=RequestContext(request))
+
+def mapa (request):
+    return render_to_response('mapa.html', locals(), context_instance=RequestContext(request))
 
 
 def cargar_marcadores (request):
-    casos = list(Caso.objects.filter(anio=2011).values_list('coordenadas', 'nombre', 'apellido').exclude(coordenadas=Geoposition(0,0)))
+    casos = list(Caso.objects.filter(anio=2011).values_list('coordenadas', 'nombre', 'apellido', 'id').exclude(coordenadas=Geoposition(0,0)))
     return HttpResponse(json.dumps(casos), content_type="application/json")
 
 
