@@ -6085,6 +6085,9 @@ header .navbar-nav > li > a {
   font-weight: normal;
   font-style: normal;
 }
+.opciones h3 {
+  font-family: 'Bebas';
+}
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .container {

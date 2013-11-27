@@ -34,14 +34,13 @@
 
 
 {% block opciones %}
-    <div class="col-lg-3">
-        <h3>Opciones</h3>
+    <div class="col-lg-3 opciones">
+        <h3>Filtros</h3>
         <h3>Periodo</h3>
         <div class="btn-group">
-          <button type="button" class="btn btn-danger">Seleccionar Año</button>
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-          </button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Todos <span class="caret"></span>
+            </button>
           <ul class="dropdown-menu" role="menu">
             <li><a>1983</a></li>
             <li><a>1984</a></li>
@@ -78,31 +77,39 @@
         </div>
         
         <h3>Edad</h3>
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary">
-            <input type="checkbox"> Mayor de 25
-          </label>
-          <label class="btn btn-primary">
-            <input type="checkbox"> Menor de 25
-          </label>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Todas <span class="caret"></span>
+        </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Menor de 14 Años</a></li>
+            <li><a href="#">De 14 a 25 Años</a></li>
+            <li><a href="#">De 26 a 35 Años</a></li>
+            <li><a href="#">De 36 a 45 años</a></li>
+            <li><a href="#">Mayor de 45 Años</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Todas</a></li>
+          </ul>
         </div>
     
         <h3>Sexo</h3>
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary">
-            <input type="checkbox"> Masculino
-          </label>
-          <label class="btn btn-primary">
-            <input type="checkbox"> Femenino
-          </label>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Ambos <span class="caret"></span>
+        </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Masculino</a></li>
+            <li><a href="#">Femenino</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Ambos</a></li>
+          </ul>
         </div>
     
         <h3>Fuerza Represiva</h3>
         <div class="btn-group">
-          <button type="button" class="btn btn-danger">Fuerza responsable</button>
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-          </button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Todas <span class="caret"></span>
+        </button>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Servicio Penitenciario</a></li>
             <li><a href="#">Policia Federal</a></li>
@@ -110,8 +117,41 @@
         </div>
     
         <h3>Provincias</h3>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Todas <span class="caret"></span>
+        </button>
+          <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Capital Federal</a></li>
+                <li><a href="#">Buenos Aires</a></li>
+                <li><a href="#">Catamarca</a></li>
+                <li><a href="#">Córdoba</a></li>
+                <li><a href="#">Corrientes</a></li>
+                <li><a href="#">Chubut</a></li>
+                <li><a href="#">Entre Ríos</a></li>
+                <li><a href="#">Formosa</a></li>
+                <li><a href="#">Jujuy</a></li>
+                <li><a href="#">La Pampa</a></li>
+                <li><a href="#">La Rioja</a></li>
+                <li><a href="#">Mendoza</a></li>
+                <li><a href="#">Misiones</a></li>
+                <li><a href="#">Neuquén</a></li>
+                <li><a href="#">Río Negro</a></li>
+                <li><a href="#">Salta</a></li>
+                <li><a href="#">San Juan</a></li>
+                <li><a href="#">San Luis</a></li>
+                <li><a href="#">Santa Cruz</a></li>
+                <li><a href="#">Santa Fe</a></li>
+                <li><a href="#">Santiago del Estero</a></li>
+                <li><a href="#">Tierra del Fuego</a></li>
+                <li><a href="#">Tucumán</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Todas</a></li>
+          </ul>
+        </div>
     
         <h4>Mostrando Actualmente</h4>
         <p>Cantidad de casos mostrados: <b id="cantidad-casos"></b></p>
     </div>
+
 {% endblock %}
