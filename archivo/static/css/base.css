@@ -6088,6 +6088,20 @@ header .navbar-nav > li > a {
 .opciones h3 {
   font-family: 'Bebas';
 }
+.opciones .btn-group {
+  width: 100%;
+}
+.opciones .btn-group .dropdown-toggle {
+  width: 100%;
+  text-align: left;
+}
+.opciones .desde,
+.opciones .hasta {
+  width: 47%!important;
+}
+.opciones .desde {
+  margin-right: 4%;
+}
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .container {
