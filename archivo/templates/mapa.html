@@ -11,8 +11,7 @@
 
 {% block body_class %}mapa{% endblock %}
 
-{% block cuerpo %}
-			
+{% block cuerpo %}			
 	<div class="col-lg-9">
 		{% for caso in casos %}
 			{{caso.id}}
@@ -31,89 +30,88 @@
 			</a>
 		</div>
 	</div>
-		
-
 {% endblock %}
 
 
 {% block opciones %}
-	<h3>Periodo</h3>
-	<div class="btn-group">
-	  <button type="button" class="btn btn-danger">Seleccionar Año</button>
-	  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" role="menu">
-	    <li><a>1983</a></li>
-		<li><a>1984</a></li>
-		<li><a>1985</a></li>
-		<li><a>1986</a></li>
-		<li><a>1987</a></li>
-		<li><a>1988</a></li>
-		<li><a>1989</a></li>
-		<li><a>1990</a></li>
-		<li><a>1991</a></li>
-		<li><a>1992</a></li>
-		<li><a>1993</a></li>
-		<li><a>1994</a></li>
-		<li><a>1995</a></li>
-		<li><a>1996</a></li>
-		<li><a>1997</a></li>
-		<li><a>1998</a></li>
-		<li><a>1999</a></li>
-		<li><a>2000</a></li>
-		<li><a>2001</a></li>
-		<li><a>2002</a></li>
-		<li><a>2003</a></li>
-		<li><a>2004</a></li>
-		<li><a>2005</a></li>
-		<li><a>2006</a></li>
-		<li><a>2007</a></li>
-		<li><a>2008</a></li>
-		<li><a>2009</a></li>
-		<li><a>2010</a></li>
-		<li><a>2011</a></li>
-		<li><a>2012</a></li>
-		<li><a>2013</a></li>
-	  </ul>
-	</div>
-	
-
-	<h3>Edad</h3>
-	<div class="btn-group" data-toggle="buttons">
-	  <label class="btn btn-primary">
-	    <input type="checkbox"> Mayor de 25
-	  </label>
-	  <label class="btn btn-primary">
-	    <input type="checkbox"> Menor de 25
-	  </label>
-	</div>
-
-	<h3>Sexo</h3>
-	<div class="btn-group" data-toggle="buttons">
-	  <label class="btn btn-primary">
-	    <input type="checkbox"> Masculino
-	  </label>
-	  <label class="btn btn-primary">
-	    <input type="checkbox"> Femenino
-	  </label>
-	</div>
-
-	<h3>Fuerza Represiva</h3>
-	<div class="btn-group">
-	  <button type="button" class="btn btn-danger">Fuerza responsable</button>
-	  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" role="menu">
-	    <li><a href="#">Servicio Penitenciario</a></li>
-	    <li><a href="#">Policia Federal</a></li>
-	  </ul>
-	</div>
-
-	<h3>Provincias</h3>
-
-	<h4>Mostrando Actualmente</h4>
-	<p>Cantidad de casos mostrados: <b id="cantidad-casos"></b></p>
-
+    <div class="col-lg-3">
+        <h3>Opciones</h3>
+        <h3>Periodo</h3>
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger">Seleccionar Año</button>
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a>1983</a></li>
+            <li><a>1984</a></li>
+            <li><a>1985</a></li>
+            <li><a>1986</a></li>
+            <li><a>1987</a></li>
+            <li><a>1988</a></li>
+            <li><a>1989</a></li>
+            <li><a>1990</a></li>
+            <li><a>1991</a></li>
+            <li><a>1992</a></li>
+            <li><a>1993</a></li>
+            <li><a>1994</a></li>
+            <li><a>1995</a></li>
+            <li><a>1996</a></li>
+            <li><a>1997</a></li>
+            <li><a>1998</a></li>
+            <li><a>1999</a></li>
+            <li><a>2000</a></li>
+            <li><a>2001</a></li>
+            <li><a>2002</a></li>
+            <li><a>2003</a></li>
+            <li><a>2004</a></li>
+            <li><a>2005</a></li>
+            <li><a>2006</a></li>
+            <li><a>2007</a></li>
+            <li><a>2008</a></li>
+            <li><a>2009</a></li>
+            <li><a>2010</a></li>
+            <li><a>2011</a></li>
+            <li><a>2012</a></li>
+            <li><a>2013</a></li>
+          </ul>
+        </div>
+        
+        <h3>Edad</h3>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="checkbox"> Mayor de 25
+          </label>
+          <label class="btn btn-primary">
+            <input type="checkbox"> Menor de 25
+          </label>
+        </div>
+    
+        <h3>Sexo</h3>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="checkbox"> Masculino
+          </label>
+          <label class="btn btn-primary">
+            <input type="checkbox"> Femenino
+          </label>
+        </div>
+    
+        <h3>Fuerza Represiva</h3>
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger">Fuerza responsable</button>
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Servicio Penitenciario</a></li>
+            <li><a href="#">Policia Federal</a></li>
+          </ul>
+        </div>
+    
+        <h3>Provincias</h3>
+    
+        <h4>Mostrando Actualmente</h4>
+        <p>Cantidad de casos mostrados: <b id="cantidad-casos"></b></p>
+    </div>
 {% endblock %}
