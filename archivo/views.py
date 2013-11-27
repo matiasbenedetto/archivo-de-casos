@@ -21,6 +21,9 @@ def mapa (request):
     return render_to_response('mapa.html', locals(), context_instance=RequestContext(request))
 
 
+def que_es (request):
+    return render_to_response('que-es.html', locals(), context_instance=RequestContext(request))
+
 def cargar_marcadores (request):
     casos = list(Caso.objects.filter(anio=2011).values_list('coordenadas', 'nombre', 'apellido', 'id').exclude(coordenadas=Geoposition(0,0)))
     return HttpResponse(json.dumps(casos), content_type="application/json")
@@ -49,6 +52,11 @@ def importar_bd (request):
             nombre=c.nombre
             apellido=c.nombre
 
+        try:
+            tipo_edad = TipoEdad.objects.get(id=c.cod_edad)
+        except:
+            tipo_edad = None
+
 
         print c.numcaso
         print c.cod_circunstancia
@@ -58,6 +66,7 @@ def importar_bd (request):
                 nombre = nombre,
                 apellido = apellido,
                 edad = edad,
+                tipo_edad = tipo_edad,
                 mayor = c.mayor,
                 ciudad = c.ciudad.title(),
                 provincia = c.provincia.title(),
@@ -121,6 +130,21 @@ def crear_circunstancias (request):
 
     return HttpResponse("Circunstancias Creadas")
 
+def crear_tipo_edad (request):
+    TipoEdad.objects.all().delete()
+
+    t=TipoEdad(id=1, nombre="Hasta 14 Años")
+    t.save()
+    t=TipoEdad(id=2, nombre="De 15 a 25 Años")
+    t.save()
+    t=TipoEdad(id=3, nombre="De 26 a 35 Años")
+    t.save()
+    t=TipoEdad(id=4, nombre="De 36 a 45 años")
+    t.save()
+    t=TipoEdad(id=5, nombre="Más de 45 Años")
+    t.save()
+
+    return HttpResponse("Tipos de Edad creados")
 
 def buscar_coordenadas(request):
 

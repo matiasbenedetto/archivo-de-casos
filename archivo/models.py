@@ -21,6 +21,12 @@ class Circunstancia (models.Model):
 
     nombre = models.CharField(max_length=60)
 
+class TipoEdad (models.Model):
+    def __unicode__(self):
+        return self.nombre
+
+    nombre = models.CharField(max_length=60)
+
 
 class Caso (models.Model):
     def __unicode__(self):
@@ -34,6 +40,7 @@ class Caso (models.Model):
     apellido = models.CharField(max_length=255)
     nombre = models.CharField(max_length=255)
     edad = models.IntegerField(blank=True, null=True)
+    tipo_edad = models. ForeignKey(TipoEdad, null=True, default=None)
     mayor = models.CharField(max_length=255, null=True, default=None)
     sexo = models.CharField(max_length=1, choices=SEXOS, default='V')
     ciudad = models.CharField(max_length=255, null=True)
