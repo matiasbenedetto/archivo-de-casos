@@ -9,7 +9,10 @@
   width: 100%;
   text-align: left;
 }
-.opciones .btn-group .dropdown-toggle .caret {
-  float: right;
-  margin-top: 10px;
+.opciones .desde,
+.opciones .hasta {
+  width: 47%!important;
+}
+.opciones .desde {
+  margin-right: 4%;
 }
