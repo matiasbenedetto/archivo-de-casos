@@ -8,11 +8,33 @@ $(document).ready(function() {
         crear_consulta ();
     });
 
+
+
+
 });
+
+function corrige_periodo (){
+    var desde = $("#desde").val();
+    var hasta = $("#hasta").val();
+
+    if (desde > hasta){
+        $("#hasta").val(desde);
+        $("#hasta").text(desde);
+    }
+
+    $(".hasta li").show();
+    $( ".hasta li a" ).each(function() {
+
+      if ( $(this).text() < desde ){
+        $(this).closest("li").hide();
+      }
+    });
+}
 
 
 
 function crear_consulta (){
+    corrige_periodo ();
     var desde = $("#desde").val();
     var hasta = $("#hasta").val();
     var tipo_edad = $("#tipo-edad").val();
