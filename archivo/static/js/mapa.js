@@ -21,6 +21,11 @@ var iconoFemenino = L.icon({
 });
 
 
+$( window ).resize(function() {
+  tamanio_mapa();
+});
+
+
 $(document).ready(function() {
 	tamanio_mapa();
 

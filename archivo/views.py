@@ -26,6 +26,9 @@ def mapa (request):
 def que_es (request):
     return render_to_response('que-es.html', locals(), context_instance=RequestContext(request))
 
+def sumate (request):
+    return render_to_response('sumate.html', locals(), context_instance=RequestContext(request))
+
 
 @csrf_exempt
 def cargar_marcadores (request):

@@ -8,14 +8,23 @@
 				<span class="logo2">de Personas Asesinadas por el Aparato<br>Represivo Estatal en Democracia</span>
 				
 			</a>
+
+			
+
 			<ul class="nav navbar-nav">
-				<li><a href="#">Estadisticas actuales</a></li>
 				<li><a href="/archivo/mapa/">Muestra Teritorial</a></li>
-				<li><a href="#">Muestra por Gobierno</a></li>
 				<li><a href="#">Muestra por Año</a></li>
 				<li><a href="/archivo/que-es/">Qué es el archivo</a></li>
-				<li><a href="#">Sumate</a></li>
+				<li><a href="/archivo/sumate/">Sumate</a></li>
 			</ul>
+
+			<form class="navbar-form navbar-left" role="search" action="/archivo/buscar/">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Buscar Persona" name="q">
+				</div>
+				<button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search"></span></button>
+		    </form>
+
 		</div>
 	</nav>
 </header>

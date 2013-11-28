@@ -998,6 +998,7 @@ header .navbar-brand{padding:10px}
 header .logo{font-family:'bebas' !important;font-size:3rem;display:inline-block;margin-left:3rem}
 header .logo2{font-family:Arial,Helvetica,Sans-serif;font-size:1.3rem;display:inline-block;line-height:1em;margin-left:1.5rem;margin-right:3rem}
 header .navbar-nav>li>a{font-size:1.3rem;line-height:1em}
+header input{width:50px}
 .navbar{margin-bottom:0;border-radius:0}
 @font-face{font-family:'bebas';src:url('/static/fonts/BebasNeue-webfont.eot');src:url('/static/fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/BebasNeue-webfont.woff') format('woff'),url('/static/fonts/BebasNeue-webfont.ttf') format('truetype'),url('/static/fonts/BebasNeue-webfont.svg#bebas_neueregular') format('svg');font-weight:normal;font-style:normal}.opciones{height:100%}.opciones h3{font-family:'Bebas';margin-top:10px;margin-bottom:3px}
 .opciones .btn-group{width:100%}.opciones .btn-group .dropdown-toggle{width:100%;text-align:left}
@@ -1008,5 +1009,6 @@ header .navbar-nav>li>a{font-size:1.3rem;line-height:1em}
 .opciones .dropdown-menu>li>a{padding:0 20px;font-size:1.2rem;cursor:pointer}
 @media (min-width:1200px){.container{width:100% !important}}html,body{height:100%}
 h1{font-family:'Bebas';font-size:6rem}
+.container{width:100%}
 p{text-align:justify}
 footer{background-color:#000;color:#eee;margin-left:-15px;margin-right:-15px;height:50px;padding-top:10px}footer small{margin:20px}

@@ -3,4 +3,5 @@ header .navbar-brand{padding:10px}
 header .logo{font-family:'bebas' !important;font-size:3rem;display:inline-block;margin-left:3rem}
 header .logo2{font-family:Arial,Helvetica,Sans-serif;font-size:1.3rem;display:inline-block;line-height:1em;margin-left:1.5rem;margin-right:3rem}
 header .navbar-nav>li>a{font-size:1.3rem;line-height:1em}
+header input{width:50px}
 .navbar{margin-bottom:0;border-radius:0}

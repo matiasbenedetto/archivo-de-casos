@@ -3,6 +3,9 @@
 <head>
 	<meta charset="utf-8">
 
+	<title>{% block title %}Archivo de Casos de Personas Asesinadas por el Aparato Represivo Estatal en Democracia{% endblock %}</title>
+	<META NAME="Description" CONTENT="{% block description %}Visualización de Datos Interactiva acerca del Archivo de Casos de Personas Asesinadas por el Aparato Represivo Estatal en Democracia{% endblock %}">
+
 	<link rel="stylesheet/less" href="{{ STATIC_URL }}css/base.less?v=4">
 	{% block extra_css %}
 	{% endblock %}
@@ -26,9 +29,8 @@
             {% endblock %}
 			
 		</div>
-		<footer>
-			<small>Estamos probando el sistema así que algunos datos pueden contener errores.</small>
-		</footer>
+		{% block footer %}
+		{% endblock %}
 	</div>
 </body>
 
