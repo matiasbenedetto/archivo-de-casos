@@ -12,7 +12,7 @@
 {% block body_class %}mapa{% endblock %}
 
 {% block cuerpo %}			
-	<div class="col-lg-9">
+	<div class="col-lg-9 col-md-9 col-sm-9">
 		{% for caso in casos %}
 			{{caso.id}}
 			{{caso.coordenadas}}
@@ -34,7 +34,7 @@
 
 
 {% block opciones %}
-    <div class="col-lg-3 opciones">
+    <div class="col-lg-3 col-md-3 col-sm-3 opciones">
         <div class="destacado">
             <h2>Filtros de datos</h2>
             <small>Filtrar datos del archivo mediante estas variables</small>
@@ -211,4 +211,8 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block footer %}
+    {% include "footer.html" %}
 {% endblock %}
