@@ -5,11 +5,11 @@ from views import *
 urlpatterns = patterns('',
     
     #acciones sobre base de datos
-    url(r'^importar-bd/', importar_bd),
-    url(r'^crear-fuerzas/', crear_fuerzas),
-    url(r'^crear-circunstancias/', crear_circunstancias),
-    url(r'^crear-tipo-edad/', crear_tipo_edad),
-    url(r'^buscar-coordenadas/', buscar_coordenadas),
+    #url(r'^importar-bd/', importar_bd),
+    #url(r'^crear-fuerzas/', crear_fuerzas),
+    #url(r'^crear-circunstancias/', crear_circunstancias),
+    #url(r'^crear-tipo-edad/', crear_tipo_edad),
+    #url(r'^buscar-coordenadas/', buscar_coordenadas),
 
     
     
