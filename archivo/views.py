@@ -19,12 +19,26 @@ def caso (request, id):
     caso = Caso.objects.get(id=id)
     return render_to_response('caso.html', locals(), context_instance=RequestContext(request))
 
+
 def mapa (request):
     return render_to_response('mapa.html', locals(), context_instance=RequestContext(request))
 
 
+def buscar (request):
+    query = request.GET["q"]
+    print query
+    if query:
+        q = Q()
+        q = q | Q(apellido__icontains=query)
+        q = q | Q(nombre__icontains=query)
+        casos = Caso.objects.filter(q)
+
+    return render_to_response('buscar.html', locals(), context_instance=RequestContext(request))
+
+
 def que_es (request):
     return render_to_response('que-es.html', locals(), context_instance=RequestContext(request))
+
 
 def sumate (request):
     return render_to_response('sumate.html', locals(), context_instance=RequestContext(request))

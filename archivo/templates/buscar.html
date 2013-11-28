@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Sumate a construir el archivo con nosotros{% endblock %}
+{% block description %}Sumate a construir el archivo de personas asesinadas por el aparato represivo estatal.{% endblock %}
+
+{% block body_class %}busqueda{% endblock %}
+
+{% block cuerpo %}
+    <div class="col-lg-6 col-lg-offset-3">
+        
+
+        <h1>Buscar casos</h1>
+        {% for caso in casos %}
+	        <div class="caso">
+	        	<h2>{{caso.nombre}} {{caso.apellido}}</h2>
+	        	<p>Año: {{caso.anio}}</p>
+	        </div>
+        {% endfor %}
+        
+        
+    </div>
+{% endblock %}
