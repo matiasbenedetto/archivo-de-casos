@@ -28,8 +28,13 @@ function crear_consulta (){
         fuerza: fuerza,
         provincia: provincia
     }, function( data ) {
-      remueve_marcadores();
-      crear_marcadores (data);
+        try{
+            remueve_marcadores();
+        }catch(err){
+          //Handle errors here
+        }
+      
+        crear_marcadores (data);
     });
 }
 

@@ -32,7 +32,7 @@ $(document).ready(function() {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  cargar_marcadores();
+  crear_consulta ();
 
 });
 
