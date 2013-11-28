@@ -25,7 +25,17 @@ $(document).ready(function() {
 	tamanio_mapa();
 
   // create a map in the "map" div, set the view to a given place and zoom
-  map = L.map('mapa').setView([-34.8, -58.7], 5);
+    var sudoeste = L.latLng(-20, -86);
+    var noreste = L.latLng(-60, -36);
+    var limites_mapa = L.latLngBounds(sudoeste, noreste);
+
+  map = L.map('mapa',
+              {
+                minZoom: 4,
+                maxZoom:11,
+                maxBounds: limites_mapa
+              }
+              ).setView([-34.8, -58.7], 5);
 
   // add an OpenStreetMap tile layer
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
