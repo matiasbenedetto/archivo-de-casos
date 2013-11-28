@@ -6,6 +6,8 @@ from django.template import RequestContext
 import requests
 from geoposition import Geoposition
 import json
+from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Q
 
 
 
@@ -24,8 +26,41 @@ def mapa (request):
 def que_es (request):
     return render_to_response('que-es.html', locals(), context_instance=RequestContext(request))
 
+
+@csrf_exempt
 def cargar_marcadores (request):
-    casos = list(Caso.objects.filter(anio=2011).values_list('coordenadas', 'nombre', 'apellido', 'id').exclude(coordenadas=Geoposition(0,0)))
+    
+    if request.method == "POST":
+
+        desde = request.POST["desde"]
+        hasta = request.POST["hasta"]
+        tipo_edad = request.POST["tipo_edad"]
+        sexo = request.POST["sexo"]
+        fuerza = request.POST["fuerza"]
+        provincia = request.POST["provincia"]
+
+        q = Q()
+
+        q = q & Q(anio__gte=desde)
+        q = q & Q(anio__lte=hasta)
+
+        if tipo_edad:
+            q = q & Q(tipo_edad__id=tipo_edad)
+
+        if sexo:
+            q = q & Q(sexo=sexo)
+
+        if fuerza:
+            q = q & Q(fuerza=fuerza)
+
+        if provincia:
+            q = q & Q(provincia=provincia)
+
+
+        casos = list(Caso.objects.filter(q).values_list('coordenadas', 'nombre', 'apellido', 'id', 'sexo').exclude(coordenadas=Geoposition(0,0)))
+    else:
+        casos = list(Caso.objects.filter(anio=2011).values_list('coordenadas', 'nombre', 'apellido', 'id', 'sexo').exclude(coordenadas=Geoposition(0,0)))
+
     return HttpResponse(json.dumps(casos), content_type="application/json")
 
 
