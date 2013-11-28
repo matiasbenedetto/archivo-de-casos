@@ -9,6 +9,17 @@ var iconoMasculino = L.icon({
     popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
 });
 
+var iconoFemenino = L.icon({
+    iconUrl: '/static/img/iconos/femenino-mapa.png',
+    shadowUrl: '/static/img/iconos/femenino-sombra-mapa.png',
+
+    iconSize:     [31, 60], // size of the icon
+    shadowSize:   [46, 31], // size of the shadow
+    iconAnchor:   [15, 30], // point of the icon which will correspond to marker's location
+    shadowAnchor: [10, 0],  // the same for the shadow
+    popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
+});
+
 
 $(document).ready(function() {
 	tamanio_mapa();
@@ -30,21 +41,7 @@ $(document).ready(function() {
 
 function cargar_marcadores () {
 	$.get( "/archivo/cargar-marcadores/", function( data ) {
-
-		var data_length = data.length;
-		for (var i = 0; i < data_length; i++) {
-			var coordenadas = data[i][0].split(",");
-			var lat = parseFloat(coordenadas[0], 10) - (Math.random()* (0.02 - -0.02) + 0.02);
-			//console.log(coordenadas[0]);
-			//console.log(lat);
-			//console.log("------------");
-			var lon = parseFloat(coordenadas[1], 10) - (Math.random()* (0.02 - -0.02) + 0.02);
-			var marker = L.marker( [lat, lon], {icon: iconoMasculino} ).addTo(map)
-							.bindPopup("<a href='/archivo/caso/"+data[i][3]+"'>" + data[i][1] + " " + data[i][2] + "</a>");
-		}
-
-		casos_mostrados(data_length);
-
+		crear_marcadores (data);
 	});
 }
 
@@ -63,3 +60,8 @@ function tamanio_mapa (){
 	$("#mapa").height(alto-50+"px");
 	//console.log(alto);
 }
+
+
+
+
+
