@@ -10,7 +10,7 @@ import json
 
 
 def index (request):
-    return redirect ("/archivo/mapa/")
+    return render_to_response('index.html', locals(), context_instance=RequestContext(request))
     
 
 def caso (request, id):
