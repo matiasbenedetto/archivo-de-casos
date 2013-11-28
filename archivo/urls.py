@@ -18,11 +18,13 @@ urlpatterns = patterns('',
     url(r'^caso/([a-zA-Z0-9_-]+)/$', caso),
     url(r'^mapa/', mapa),
     url(r'^cargar-marcadores/', cargar_marcadores),
-
+    url(r'^buscar/', buscar),
 
     #paginas
     url(r'^que-es/', que_es),
     url(r'^sumate/', sumate),
+
+
 
     
 )
