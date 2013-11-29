@@ -49,7 +49,34 @@ $(document).ready(function() {
 
   crear_consulta ();
 
+    map.on('popupopen', function() {  
+      $('.caso-popup').click(function(e){
+          var id_caso = $(this).attr("id_caso");
+          $.post( "/archivo/caso-json/", {
+              id_caso: id_caso,
+          }, function( data ) {
+            $('#modal-caso .modal-content').html(data);
+            $('#modal-caso').modal('toggle');
+          });
+          
+      });
+  });
+
+    $(".caso-popup").click(function(){
+      console.log("prueba popup");
+      var id_caso = $(this).attr("id_caso");
+
+      $.post( "/archivo/cargar-marcadores/", {
+          id_caso: id_caso,
+      }, function( data ) {
+        
+        $('#myModal').modal('toggle');
+      });
+
+    });
+
 });
+
 
 
 

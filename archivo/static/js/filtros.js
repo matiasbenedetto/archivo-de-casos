@@ -82,9 +82,10 @@ function crear_marcadores (data){
         }else{
             var icono = iconoFemenino;
         }
-        var marker = L.marker( [lat, lon], {icon: icono} ).bindPopup("<a href='/archivo/caso/"+data[i][3]+"'>" + data[i][1] + " " + data[i][2] + "</a>");
+        var marker = L.marker( [lat, lon], {icon: icono} ).bindPopup("<p class='caso-popup' id_caso='"+data[i][3]+"'>" + data[i][1] + " " + data[i][2] + "</span>  <span class='glyphicon glyphicon-new-window'></p>");
         markers.push(marker);
         map.addLayer(markers[i]);
     }
+
     casos_mostrados(data_length);
 }

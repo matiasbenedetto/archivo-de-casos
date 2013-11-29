@@ -14,7 +14,11 @@
 			
 	<div class="col-lg-9">
 		<h1>{{caso.nombre}} {{caso.apellido}}</h1>
+		{% if caso.edad %}<p>{{caso.edad}} años</p>{% endif %}
+		<p>{% if caso.ciudad %}{{caso.ciudad}}, {% endif %}{{caso.provincia}}</p>
 
+		<h2>Fuerza Responsable</h2>
+		<p>{{caso.fuerza.nombre}}</p>
 		<h2>Imputados</h2>
 		<p>{{caso.imputados}}</p>
 		<h2>Circunstancias</h2>

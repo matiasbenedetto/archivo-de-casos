@@ -1,0 +1,21 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h1 class="modal-title" id="myModalLabel">{{caso.nombre}} {{caso.apellido}}</h1>
+</div>
+
+<div class="modal-body">
+	{% if caso.edad %}
+		<h2>Edad</h2>
+		<p>{{caso.edad}} años</p>
+	{% endif %}
+	<h2>Ciudad</h2>
+	<p>{% if caso.ciudad %}{{caso.ciudad}}, {% endif %}{{caso.provincia}}</p>
+	<h2>Fuerza Responsable</h2>
+	<p>{{caso.fuerza.nombre}}</p>
+	<h2>Imputados</h2>
+	<p>{{caso.imputados}}</p>
+	<h2>Circunstancias</h2>
+	<p>{{caso.circunstancias}}</p>
+	<h2>Situación Procesal</h2>
+	<p>{{caso.situacion_procesal}}</p>
+</div>

@@ -20,6 +20,11 @@ def caso (request, id):
     caso = Caso.objects.get(id=id)
     return render_to_response('caso.html', locals(), context_instance=RequestContext(request))
 
+@csrf_exempt
+def caso_json(request):
+    id_caso=request.POST['id_caso']
+    caso = Caso.objects.get(id=id_caso)
+    return render_to_response('modal-caso.html', locals(), context_instance=RequestContext(request))
 
 def mapa (request):
     return render_to_response('mapa.html', locals(), context_instance=RequestContext(request))
