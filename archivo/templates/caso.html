@@ -12,11 +12,14 @@
 
 {% block cuerpo %}
 			
-	<div class="col-lg-9">
+	<div class="col-lg-6 col-lg-offset-3">
 		<h1>{{caso.nombre}} {{caso.apellido}}</h1>
-		{% if caso.edad %}<p>{{caso.edad}} años</p>{% endif %}
+		{% if caso.edad %}
+			<h2>Edad</h2>
+			<p>{{caso.edad}} años</p>
+		{% endif %}
+		<h2>Ciudad</h2>
 		<p>{% if caso.ciudad %}{{caso.ciudad}}, {% endif %}{{caso.provincia}}</p>
-
 		<h2>Fuerza Responsable</h2>
 		<p>{{caso.fuerza.nombre}}</p>
 		<h2>Imputados</h2>
