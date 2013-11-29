@@ -64,9 +64,7 @@ function crear_consulta (){
 
 function remueve_marcadores(){
     //remueve todos los marcadores del mapa
-    for(i=0;i<markers.length;i++) {
-        map.removeLayer(markers[i]);
-    } 
+    map.removeLayer(markers);
 }
 
 
