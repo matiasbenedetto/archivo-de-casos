@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'south',
 	'archivo',
     'geoposition',
+    'simplesearch',
 )
 
 MIDDLEWARE_CLASSES = (

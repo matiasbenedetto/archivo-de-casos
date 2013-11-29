@@ -20,7 +20,7 @@
 
 			<form class="navbar-form navbar-left" role="search" action="/archivo/buscar/">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Buscar Persona" name="q">
+					<input type="text" class="form-control" placeholder="Buscar Persona" name="q" value="{{request.GET.q}}">
 				</div>
 				<button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search"></span></button>
 		    </form>

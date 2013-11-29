@@ -8,6 +8,7 @@ from geoposition import Geoposition
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
+from simplesearch.functions import get_query
 
 
 
@@ -25,13 +26,15 @@ def mapa (request):
 
 
 def buscar (request):
-    query = request.GET["q"]
-    print query
-    if query:
-        q = Q()
-        q = q | Q(apellido__icontains=query)
-        q = q | Q(nombre__icontains=query)
-        casos = Caso.objects.filter(q)
+
+    if 'q' in request.GET:
+        query = request.GET["q"]
+        if query:
+            if len(query) > 3:
+                filtros = get_query(query, ['nombre', 'apellido'])
+                casos = Caso.objects.filter(filtros).distinct()
+            else:
+                mensaje_error = "La palabra buscada es demasiado corta"
 
     return render_to_response('buscar.html', locals(), context_instance=RequestContext(request))
 
