@@ -13,7 +13,8 @@ from simplesearch.functions import get_query
 
 
 def index (request):
-    return render_to_response('index.html', locals(), context_instance=RequestContext(request))
+    #return render_to_response('index.html', locals(), context_instance=RequestContext(request))
+    return redirect("/archivo/mapa/")
     
 
 def caso (request, id):
