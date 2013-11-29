@@ -35,6 +35,7 @@ function corrige_periodo (){
 
 function crear_consulta (){
     corrige_periodo ();
+    $("#loading").show();
     var desde = $("#desde").val();
     var hasta = $("#hasta").val();
     var tipo_edad = $("#tipo-edad").val();
@@ -55,7 +56,7 @@ function crear_consulta (){
         }catch(err){
           //Handle errors here
         }
-      
+        $("#loading").hide();
         crear_marcadores (data);
     });
 }
