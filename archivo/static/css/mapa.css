@@ -4,4 +4,4 @@
 .firma{position:absolute;bottom:0;padding-bottom:20px}.firma img{margin-left:20px}
 .caso-popup{cursor:pointer;font-family:'bebas';font-size:2rem}
 .leaflet-cluster-anim .leaflet-marker-icon,.leaflet-cluster-anim .leaflet-marker-shadow{-webkit-transition:-webkit-transform .2s ease-out,opacity .2s ease-in;-moz-transition:-moz-transform .2s ease-out,opacity .2s ease-in;-o-transition:-o-transform .2s ease-out,opacity .2s ease-in;transition:transform .2s ease-out,opacity .2s ease-in}
-.leaflet-div-icon{border:0 transparent !important;background-color:transparent !important;font-size:15px}
+.leaflet-div-icon{border:0 transparent !important;background-color:transparent !important;font-size:12px}.leaflet-div-icon b{position:absolute;left:12px;top:12px;background-color:#fff;border-radius:3px;padding-left:4px;padding-right:4px;line-height:1em}
