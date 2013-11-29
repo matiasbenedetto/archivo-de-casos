@@ -3,19 +3,37 @@
 {% block title %}Sumate a construir el archivo con nosotros{% endblock %}
 {% block description %}Sumate a construir el archivo de personas asesinadas por el aparato represivo estatal.{% endblock %}
 
-{% block body_class %}busqueda{% endblock %}
+{% block body_class %}buscar{% endblock %}
 
 {% block cuerpo %}
     <div class="col-lg-6 col-lg-offset-3">
         
 
         <h1>Buscar casos</h1>
-        {% for caso in casos %}
-	        <div class="caso">
-	        	<h2>{{caso.nombre}} {{caso.apellido}}</h2>
-	        	<p>Año: {{caso.anio}}</p>
-	        </div>
-        {% endfor %}
+
+        {% if query and not mensaje_error %}
+	        <h4>Buscando casos que coincidan con '{{request.GET.q}}'</h4>
+	        {% for caso in casos %}
+		        <div class="caso">
+		        	<img class="icono-sexo" src="{{STATIC_URL}}img/iconos/{% if caso.sexo == "V" %}masculino-mapa.png{% else %}femenino-mapa.png{% endif %}">
+		        	<a href="/archivo/caso/{{caso.id}}"><h2><b>{{caso.nombre}} {{caso.apellido}}</b> | {% if caso.edad %}{{caso.edad}} años{% endif %}</h2></a>
+		        	<p>{{caso.ciudad}}, {{caso.provincia}}</p>
+		        	<small>Fecha de deceso:  <b>{% if caso.fecha_deceso %}{{caso.fecha_deceso}}{% else %}{{caso.anio}}{% endif %}</b></small>
+		        </div>
+	        {% endfor %}
+	   {% endif %}
+
+	   {% if not query or mensaje_error %}
+	   		{% if mensaje_error %}<h2>{{mensaje_error}}</h2>{% endif %}
+	    	<h4>Escribi un nombre en el campo de busqueda para encontrar casos.</h4>
+	    	<form class="form" role="search" action="/archivo/buscar/">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Buscar Persona" name="q" value="{{request.GET.q}}">
+				</div>
+				<button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search"></span> Buscar</button>
+		    </form>
+		{% endif %}
+	    
         
         
     </div>
