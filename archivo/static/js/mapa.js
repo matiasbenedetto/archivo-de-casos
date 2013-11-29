@@ -37,7 +37,7 @@ $(document).ready(function() {
   map = L.map('mapa',
               {
                 minZoom: 4,
-                maxZoom:11,
+                maxZoom:13,
                 maxBounds: limites_mapa
               }
               ).setView([-34.8, -58.7], 5);

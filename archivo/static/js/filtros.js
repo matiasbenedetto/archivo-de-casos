@@ -69,10 +69,16 @@ function remueve_marcadores(){
 }
 
 
+
 function crear_marcadores (data){
     //crea e inserta los marcadores de casos en el mapa
     var data_length = data.length;
-    markers = new Array();
+    markers = new L.MarkerClusterGroup({
+                                        maxClusterRadius:10,
+                                        iconCreateFunction: function(cluster) {
+                                                                return new L.DivIcon({ html: '<img src="/static/img/iconos/cluster.png"><b>' + cluster.getChildCount() + '</b>' });
+                                                                             }
+    });
     for (var i = 0; i < data_length; i++) {
         var coordenadas = data[i][0].split(",");
         var lat = parseFloat(coordenadas[0], 10) - (Math.random()* (0.02 - -0.02) + 0.02);
@@ -83,8 +89,8 @@ function crear_marcadores (data){
             var icono = iconoFemenino;
         }
         var marker = L.marker( [lat, lon], {icon: icono} ).bindPopup("<p class='caso-popup' id_caso='"+data[i][3]+"'>" + data[i][1] + " " + data[i][2] + "</span>  <span class='glyphicon glyphicon-new-window'></p>");
-        markers.push(marker);
-        map.addLayer(markers[i]);
+        markers.addLayer(marker);
+        map.addLayer(markers);
     }
 
     casos_mostrados(data_length);
