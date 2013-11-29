@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 
     #--------------------------------
     url(r'^caso/([a-zA-Z0-9_-]+)/$', caso),
+    url(r'^caso-json/$', caso_json),
     url(r'^mapa/', mapa),
     url(r'^cargar-marcadores/', cargar_marcadores),
     url(r'^buscar/', buscar),
