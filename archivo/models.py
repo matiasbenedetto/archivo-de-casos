@@ -63,12 +63,6 @@ class Gobierno (models.Model):
     tipo =     # nacional, provincial
     inicio =   #cuando empezo el mandato
     termino =   #cuando termino el gobierno
-    
-    
-    
-    
-#como determinan la fuerza ?
-#como determinan el gobierno ?
 
 """
 
