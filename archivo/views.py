@@ -56,7 +56,7 @@ def sumate (request):
 
 @login_required
 def casos_sin_coordenadas (request):
-    casos=Caso.objects.all().exclude( coordenadas=Geoposition(0,0) )
+    casos=Caso.objects.filter( coordenadas=Geoposition(0,0) )
     return render_to_response('casos-sin-coordenadas.html', locals(), context_instance=RequestContext(request))
 
 
