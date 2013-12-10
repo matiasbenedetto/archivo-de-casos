@@ -40,7 +40,7 @@ class Caso (models.Model):
     apellido = models.CharField(max_length=255)
     nombre = models.CharField(max_length=255)
     edad = models.IntegerField(blank=True, null=True)
-    tipo_edad = models. ForeignKey(TipoEdad, null=True, default=None)
+    tipo_edad = models. ForeignKey(TipoEdad, blank=True, null=True, default=None)
     mayor = models.CharField(max_length=255, null=True, default=None)
     sexo = models.CharField(max_length=1, choices=SEXOS, default='V')
     ciudad = models.CharField(max_length=255, null=True)
