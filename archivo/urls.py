@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     #url(r'^crear-tipo-edad/', crear_tipo_edad),
     #url(r'^buscar-coordenadas/', buscar_coordenadas),
 
-    
+    url(r'^casos-sin-coordenadas/', casos_sin_coordenadas),
     
 
     #--------------------------------

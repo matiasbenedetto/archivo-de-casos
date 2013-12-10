@@ -1,0 +1,8 @@
+<html>
+<head></head>
+<body>
+	{% for caso in casos %}
+		<a href="http://archivodecasos.com.ar/admin/archivo/caso/{{caso.id}}" target="_blank">{{caso.id}} - {{caso.nombre}} {{caso.apellido}} - {{caso.ciudad}} - {{caso.provincia}}</a> <br><br>
+	{% endfor %}
+</body>
+</html>
