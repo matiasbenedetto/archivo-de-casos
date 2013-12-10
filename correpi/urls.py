@@ -17,4 +17,6 @@ urlpatterns = patterns('',
 
     (r'^archivo/', include('archivo.urls')),
 
+    ('^accounts/', include('django.contrib.auth.urls')),
+
 )

@@ -9,6 +9,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from simplesearch.functions import get_query
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -51,6 +52,12 @@ def que_es (request):
 
 def sumate (request):
     return render_to_response('sumate.html', locals(), context_instance=RequestContext(request))
+
+
+@login_required
+def casos_sin_coordenadas (request):
+    casos=Caso.objects.all().exclude( coordenadas=Geoposition(0,0) )
+    return render_to_response('casos-sin-coordenadas.html', locals(), context_instance=RequestContext(request))
 
 
 @csrf_exempt
