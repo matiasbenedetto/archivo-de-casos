@@ -1012,8 +1012,9 @@ header input{width:50px}
 .opciones .dropdown-menu>li>a{padding:0 20px;font-size:1.2rem;cursor:pointer}
 .opciones #loading{display:none;position:absolute;top:0;height:100%;width:100%;background-color:rgba(0,0,0,0.7);text-align:center;margin-left:-15px}.opciones #loading h2{font-family:'Bebas';color:#fff;margin-top:150px}
 .opciones #loading img{width:70px}
-.buscar .caso{border-bottom:1px dashed #aaa;padding-bottom:10px;margin-top:10px}.buscar .caso h2{margin:0 !important;padding:0 !important}
-.buscar .caso p{margin:0}
+.buscar h2{margin-bottom:30px}
+.buscar .caso{border-bottom:1px dashed #aaa;padding-bottom:10px;margin-top:10px}.buscar .caso h2{margin:0 !important;padding:0 !important;margin-bottom:20px}
+.buscar .caso p{margin:0;margin-bottom:10px}
 .buscar .caso small{margin:0}
 .buscar .caso .icono-sexo{float:left;margin-right:20px}
 .modal h1{font-size:4rem}

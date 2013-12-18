@@ -21,6 +21,8 @@ urlpatterns = patterns('',
     url(r'^cargar-marcadores/', cargar_marcadores),
     url(r'^buscar/', buscar),
 
+    url(r'^los-muertos-de-2001/', los_muertos_de_2001),
+
     #paginas
     url(r'^que-es/', que_es),
     url(r'^sumate/', sumate),

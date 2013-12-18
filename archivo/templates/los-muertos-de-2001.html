@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Quienes son los Muertos del 2001?{% endblock %}
+{% block description %}Lista de muertos en el el argentinazo de 2001{% endblock %}
+
+{% block body_class %}buscar{% endblock %}
+
+{% block cuerpo %}
+    <div class="col-lg-6 col-lg-offset-3">
+        
+
+        <h1>Quienes son los muertos de 2001?</h1>
+        <h2>Los asesinados por las fuerzas represivas en la rebelión popular de 2001.</h2>
+
+        {% for caso in casos %}
+	        <div class="caso">
+	        	<img class="icono-sexo" src="{{STATIC_URL}}img/iconos/{% if caso.sexo == "V" %}masculino-mapa.png{% else %}femenino-mapa.png{% endif %}">
+	        	<a href="/archivo/caso/{{caso.id}}"><h2><b>{{caso.nombre}} {{caso.apellido}}</b> | {% if caso.edad %}{{caso.edad}} años{% endif %}</h2></a>
+	        	<p>{{caso.ciudad}}, {{caso.provincia}}</p>
+	        	<p><b>Circunstancias:</b> {{caso.circunstancias}}</p>
+	        	<p><b>Imputados:</b> {{caso.imputados}}</p>
+	        	<p><b>Situación Procesal:</b> {{caso.situacion_procesal}}</p>
+	        </div>
+        {% endfor %}
+	    
+        
+        
+    </div>
+{% endblock %}
