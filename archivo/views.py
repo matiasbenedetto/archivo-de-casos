@@ -31,6 +31,11 @@ def caso_json(request):
 def mapa (request):
     return render_to_response('mapa.html', locals(), context_instance=RequestContext(request))
 
+def los_muertos_de_2001 (request):
+    casos = Caso.objects.filter(pk__in=[22, 41, 51, 70, 74, 83, 93, 142, 230, 247, 360, 393, 438, 426, 455, 496, 577, 587, 629, 650, 661, 671, 745, 817, 874, 889, 899, 916, 966, 997, 1001, 1022, 1055, 1075, 1694, 1194, 1224, 1259])
+    print casos.count()
+    return render_to_response('los-muertos-de-2001.html', locals(), context_instance=RequestContext(request))
+
 
 def buscar (request):
 
@@ -57,6 +62,7 @@ def sumate (request):
 @login_required
 def casos_sin_coordenadas (request):
     casos=Caso.objects.filter( coordenadas=Geoposition(0,0) )
+    print casos.count()
     return render_to_response('casos-sin-coordenadas.html', locals(), context_instance=RequestContext(request))
 
 
