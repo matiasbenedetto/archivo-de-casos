@@ -54,6 +54,16 @@ class Caso (models.Model):
     mayor = models.CharField(max_length=255)
     fuerza = models. ForeignKey(Fuerza)
     coordenadas = GeopositionField()
+    imagen = models.ImageField(upload_to="imagenes_casos", default=None, null=True, blank=True)
+
+    def foto(self):
+        if self.imagen:
+            img = get_thumbnail(self.imagen, '80x80', crop='center', quality=99)
+            return '<img src="%s" width="80" height="80" />' % (img.url)
+        else:
+            return None
+    foto.allow_tags = True
+
     
 
 
