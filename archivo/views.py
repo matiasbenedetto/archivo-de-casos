@@ -105,7 +105,7 @@ def cargar_marcadores (request):
 
 def capitalizar_provincias():
     for caso in Caso.objects.all():
-        caso.provincia = provincia.title()
+        caso.provincia = caso.provincia.title()
         caso.save()
     return "provincias actualizadas"
 
