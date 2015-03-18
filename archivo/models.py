@@ -35,7 +35,34 @@ class Caso (models.Model):
     SEXOS =(
             ('V', 'Varon'),
             ('M', 'Mujer')
-            ) 
+            )
+
+    PROVINCIAS = (
+                ('Buenos Aires', 'Buenos Aires'),
+                ('Catamarca', 'Catamarca'),
+                ('Chaco', 'Chaco'),
+                ('Chubut', 'Chubut'),
+                ('Ciudad De Buenos Aires', 'Ciudad De Buenos Aires'),
+                ('Cordoba', 'Cordoba'),
+                ('Corrientes', 'Corrientes'),
+                ('Entre Rios', 'Entre Rios'),
+                ('Formosa', 'Formosa'),
+                ('Jujuy', 'Jujuy'),
+                ('La Pampa', 'La Pampa'),
+                ('La Rioja', 'La Rioja'),
+                ('Mendoza', 'Mendoza'),
+                ('Misiones', 'Misiones'),
+                ('Neuquen', 'Neuquen'),
+                ('Rio Negro', 'Rio Negro'),
+                ('Salta', 'Salta'),
+                ('San Juan', 'San Juan'),
+                ('San Luis', 'San Luis'),
+                ('Santa Cruz', 'Santa Cruz'),
+                ('Santa Fe', 'Santa Fe'),
+                ('Santiago Del Estero', 'Santiago Del Estero'),
+                ('Tierra Del Fuego', 'Tierra Del Fuego'),
+                ('Tucuman', 'Tucuman')
+                )
     
     apellido = models.CharField(max_length=255)
     nombre = models.CharField(max_length=255)
@@ -45,7 +72,7 @@ class Caso (models.Model):
     mayor = models.CharField(max_length=255, null=True, default=None)
     sexo = models.CharField(max_length=1, choices=SEXOS, default='V')
     ciudad = models.CharField(max_length=255, null=True)
-    provincia = models.CharField(max_length=255)
+    provincia = models.CharField(max_length=255, choices=PROVINCIAS)
     fecha_deceso = models.DateField(blank=True, null=True)
     anio = models.IntegerField(blank=True, null=True)
     imputados = models.TextField(blank=True)

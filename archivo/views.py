@@ -103,6 +103,13 @@ def cargar_marcadores (request):
     return HttpResponse(json.dumps(casos), content_type="application/json")
 
 
+def capitalizar_provincias():
+    for caso in Caso.objects.all():
+        caso.provincia = provincia.title()
+        caso.save()
+    return "provincias actualizadas"
+
+
 def importar_bd (request):
     Caso.objects.all().delete()
 
