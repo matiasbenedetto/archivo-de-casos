@@ -39,6 +39,7 @@ class Caso (models.Model):
     
     apellido = models.CharField(max_length=255)
     nombre = models.CharField(max_length=255)
+    imagen = models.ImageField(upload_to="imagenes_casos", default=None, null=True, blank=True)
     edad = models.IntegerField(blank=True, null=True)
     tipo_edad = models. ForeignKey(TipoEdad, blank=True, null=True, default=None)
     mayor = models.CharField(max_length=255, null=True, default=None)
@@ -54,7 +55,7 @@ class Caso (models.Model):
     mayor = models.CharField(max_length=255)
     fuerza = models. ForeignKey(Fuerza)
     coordenadas = GeopositionField()
-    imagen = models.ImageField(upload_to="imagenes_casos", default=None, null=True, blank=True)
+    
 
     def foto(self):
         if self.imagen:
