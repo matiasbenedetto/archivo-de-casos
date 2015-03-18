@@ -11,6 +11,6 @@ class CasoAdmin(admin.ModelAdmin):
 	list_display = ('foto', 'id', 'nombre', 'apellido', 'edad', 'sexo', 'provincia', 'fecha_deceso')
 	list_editable = ('sexo',)
 	search_fields = ['nombre', 'apellido', 'edad', 'provincia']
-	list_filter = ['sexo', 'provincia', 'circunstancia', 'fuerza']
+	list_filter = ['sexo', 'tipo_edad', 'provincia', 'circunstancia', 'fuerza']
 
 admin.site.register(Caso, CasoAdmin)
