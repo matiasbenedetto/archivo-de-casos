@@ -110,7 +110,7 @@ def capitalizar_provincias():
     return "provincias actualizadas"
 
 
-def actualizar_bd (request):
+def actualizar_bd (request): #importacion de casos 2015
 
     #Caso.objects.all().delete()
 
@@ -201,7 +201,7 @@ def actualizar_bd (request):
     return render_to_response('actualizar_bd.html', locals(), context_instance=RequestContext(request))
 
 
-def importar_bd (request):
+def importar_bd (request): #importacion de casos 2013
     Caso.objects.all().delete()
 
     for c in Archivodecasos.objects.all().order_by("numcaso").reverse():
