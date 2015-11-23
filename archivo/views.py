@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from simplesearch.functions import get_query
 from django.contrib.auth.decorators import login_required
-
+import json
 
 
 def index (request):
@@ -108,6 +108,97 @@ def capitalizar_provincias():
         caso.provincia = caso.provincia.title()
         caso.save()
     return "provincias actualizadas"
+
+
+def actualizar_bd (request):
+
+    #Caso.objects.all().delete()
+
+    for c in Archivodecasos2015.objects.all().order_by("numcaso").reverse():
+
+        edad = c.edad
+        try:
+            edad = int(c.edad)
+        except:
+            edad = None
+
+        try:
+            circunstancia = Circunstancia.objects.get(id=c.cod_circunstancia)
+        except:
+            circunstancia = None
+
+        try:
+            nombre=c.nombre.split(",")[1].title()
+            apellido=c.nombre.split(",")[0].title()
+        except:
+            nombre=c.nombre
+            apellido=c.nombre
+
+        try:
+            tipo_edad = TipoEdad.objects.get(id=c.cod_edad)
+        except:
+            tipo_edad = None
+
+        if c.genero == "F":
+            genero = "M"
+        else:
+            genero = "V"
+
+        if c.ciudad:
+            ciudad=c.ciudad.title()
+        else:
+            ciudad=None
+
+
+        print c.numcaso
+        #print c.cod_circunstancia
+
+        try:
+            caso = Caso.objects.get(id=c.numcaso)
+            caso.sexo=genero
+            caso.id=c.numcaso
+            caso.nombre = nombre
+            caso.apellido = apellido
+            caso.edad = edad
+            caso.tipo_edad = tipo_edad
+            caso.mayor = c.mayor
+            caso.ciudad = ciudad
+            caso.provincia = c.provincia.title()
+            caso.fecha_deceso = c.fecha_de_deceso
+            caso.anio = c.anio
+            caso.imputados = c.imputados
+            caso.situacion_procesal = c.situacion_procesal
+            caso.circunstancia = circunstancia
+            caso.circunstancias = c.circunstancias
+            caso.fuerza = Fuerza.objects.get(nombre=c.cod_fuerza)
+
+        except:
+            caso=Caso(
+                    sexo=genero,
+                    id=c.numcaso,
+                    nombre = nombre,
+                    apellido = apellido,
+                    edad = edad,
+                    tipo_edad = tipo_edad,
+                    mayor = c.mayor,
+                    ciudad = ciudad,
+                    provincia = c.provincia.title(),
+                    fecha_deceso = c.fecha_de_deceso,
+                    anio = c.anio,
+                    imputados = c.imputados,
+                    situacion_procesal = c.situacion_procesal,
+                    circunstancia = circunstancia,
+                    circunstancias = c.circunstancias,
+                    fuerza = Fuerza.objects.get(nombre=c.cod_fuerza)
+                )
+
+
+        caso.save()
+
+    casos = Caso.objects.all()
+
+
+    return render_to_response('actualizar_bd.html', locals(), context_instance=RequestContext(request))
 
 
 def importar_bd (request):
