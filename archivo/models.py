@@ -3,6 +3,7 @@
 
 from django.db import models
 from geoposition.fields import GeopositionField
+from sorl.thumbnail import get_thumbnail
 
 
 class Fuerza (models.Model):
