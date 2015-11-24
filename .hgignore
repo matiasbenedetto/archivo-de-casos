@@ -8,3 +8,5 @@ syntax: glob
 correpi/settings_local.py
 *.sublime-project
 *.sublime-workspace
+media/imagenes_casos
+media/*
