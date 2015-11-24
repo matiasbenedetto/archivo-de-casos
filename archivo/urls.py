@@ -5,7 +5,7 @@ from views import *
 urlpatterns = patterns('',
     
     #acciones sobre base de datos
-    url(r'^actualizar-bd/', actualizar_bd),
+    #url(r'^actualizar-bd/', actualizar_bd),
     #url(r'^importar-bd/', importar_bd),
     #url(r'^crear-fuerzas/', crear_fuerzas),
     #url(r'^crear-circunstancias/', crear_circunstancias),
