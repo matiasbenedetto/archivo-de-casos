@@ -94,6 +94,9 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'correpi/templates'),
 )
 
+#django-geo-position
+#GEOPOSITION_GOOGLE_MAPS_API_KEY = en settings_local.py
+
 try:
     from settings_local import *
 except ImportError:
